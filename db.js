@@ -1,18 +1,17 @@
-// Kết nối đến database MongoDB
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/product_management', {
+mongoose.connect('mongodb://localhost:27017/product-management', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const ProductSchema = new mongoose.Schema({
-  ProductCode: String,
-  ProductName: String,
-  ProductDate: Date,
-  ProductOriginPrice: Number,
-  Quantity: Number,
-  ProductStoreCode: String
+  productCode: String,
+  productName: String,
+  productDate: Date,
+  productOriginPrice: Number,
+  quantity: Number,
+  productStoreCode: String,
 });
 
 const Product = mongoose.model('Product', ProductSchema);
