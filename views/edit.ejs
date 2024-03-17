@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chỉnh sửa sản phẩm</title>
+</head>
+<body>
+  <h1>Chỉnh sửa sản phẩm</h1>
+  <form action="/products/<%= product.productcode %>" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="productcode">Mã sản phẩm:</label>
+    <input type="text" id="productcode" name="productcode" value="<%= product.productcode %>" disabled>
+    <br>
+    <label for="productname">Tên sản phẩm:</label>
+    <input type="text" id="productname" name="productname" value="<%= product.productname %>">
+    <br>
+    <label for="productDate">Ngày sản xuất:</label>
+    <input type="date" id="productDate" name="productDate" value="<%= product.productDate %>">
+    <br>
+    <label for="productPrice">Giá sản phẩm:</label>
+    <input type="number" id="productPrice" name="productPrice" value="<%= product.productPrice %>">
+    <br>
+    <label for="productStorecode">Mã cửa hàng:</label>
+    <input type="text" id="productStorecode" name="productStorecode" value="<%= product.productStorecode %>">
+    <br>
+    <button type="submit">Cập nhật</button>
+  </form>
+</body>
+</html>

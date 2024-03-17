@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project NodeJS</title>
+</head>
+<body>
+  <h1>Danh sách sản phẩm</h1>
+  <table border="1">
+    <tr>
+      <th>Mã sản phẩm</th>
+      <th>Tên sản phẩm</th>
+      <th>Ngày sản xuất</th>
+      <th>Giá sản phẩm</th>
+      <th>Mã cửa hàng</th>
+    </tr>
+    <% for (const product of products) { %>
+    <tr>
+      <td><%= product.productcode %></td>
+      <td><%= product.productname %></td>
+      <td><%= product.productDate %></td>
+      <td><%= product.productPrice %></td>
+      <td><%= product.productStorecode %></td>
+    </tr>
+    <% } %>
+  </table>
+</body>
+</html>
