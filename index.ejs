@@ -1,31 +1,47 @@
-<%- include('header') %>
-
-<div class="container">
-  <h1>Danh sách sản phẩm</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Mã sản phẩm</th>
-        <th>Tên sản phẩm</th>
-        <th>Ngày sản xuất</th>
-        <th>Giá gốc</th>
-        <th>Số lượng</th>
-        <th>Mã kho</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for (const product of products) { %>
-      <tr>
-        <td><%= product.ProductCode %></td>
-        <td><%= product.ProductName %></td>
-        <td><%= product.ProductDate %></td>
-        <td><%= product.ProductOriginPrice %></td>
-        <td><%= product.Quantity %></td>
-        <td><%= product.ProductStoreCode %></td>
-      </tr>
-      <% } %>
-    </tbody>
-  </table>
-</div>
-
-<%- include('footer') %>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Danh sách sản phẩm</h1>
+    <a href="/products/create" class="btn btn-primary">Thêm sản phẩm mới</a>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Mã sản phẩm</th>
+          <th>Tên sản phẩm</th>
+          <th>Ngày sản xuất</th>
+          <th>Giá gốc</th>
+          <th>Số lượng</th>
+          <th>Mã kho</th>
+          <th>Chỉnh sửa</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const product of products) { %>
+        <tr>
+          <td><%= product.ProductCode %></td>
+          <td><%= product.ProductName %></td>
+          <td><%= product.ProductDate.toLocaleDateString('vi-VN') %></td>
+          <td><%= product.ProductOriginPrice %></td>
+          <td><%= product.Quantity %></td>
+          <td><%= product.ProductStoreCode %></td>
+          <td><a href="/products/edit/<%= product._id %>" class="btn btn-warning">Chỉnh sửa</a></td>
+          <td>
+            <form action="/products/delete/<%= product._id %>" method="post">
+              <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">Xóa</button>
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
