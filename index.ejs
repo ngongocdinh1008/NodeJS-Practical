@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <h1>Quản lý sản phẩm</h1>
+    <a href="/products/create" class="btn btn-primary">Thêm sản phẩm</a>
     <ul class="list-group">
       <% for (const product of products) { %>
       <li class="list-group-item">
@@ -16,13 +17,14 @@
         <br>
         <strong>Tên sản phẩm:</strong> <%= product.productName %>
         <br>
-        <strong>Ngày sản xuất:</strong> <%= product.productDate %>
-        <br>
         <strong>Giá gốc:</strong> <%= product.productOriginPrice %>
         <br>
         <strong>Số lượng:</strong> <%= product.quantity %>
         <br>
         <strong>Mã kho:</strong> <%= product.productStoreCode %>
+        <br>
+        <a href="/products/edit/<%= product._id %>" class="btn btn-warning">Sửa</a>
+        <a href="/products/delete/<%= product._id %>" class="btn btn-danger">Xóa</a>
       </li>
       <% } %>
     </ul>
